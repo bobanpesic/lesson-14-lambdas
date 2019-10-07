@@ -6,14 +6,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class _1_WordFinder {
 
 	public static void main(String[] args) {
 		/* Print all the words beginning with P that are over 10 characters. */
-		
 
-		
+		List<String> words = loadWordList().stream().filter(x -> x.length() > 10).filter(x -> x.charAt(0) == 'P')
+				.collect(Collectors.toList());
+
+		System.out.println(words);
 	}
 
 	public static List<String> loadWordList() {
